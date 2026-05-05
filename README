@@ -1,24 +1,70 @@
-# Web3 Payment App Starter
+## Web3 Authentication with Privy (Starter Project)
 
-This is the starter project used in the YouTube series.
+This is the starter code for the YouTube series Building a Web3 Payment App, where we integrate authentication using Privy into a fullstack application.
 
-## Setup
+In this part of the series, we focus on:
 
-### 1. Clone repo
-git clone <repo-url>
+## .Web3 login (frontend)
+## .Backend token verification
+## .Decrypting and validating user sessions
+## .Extracting authenticated user information
 
-### 2. Install dependencies
-cd client && npm install  
-cd ../backend && npm install  
+## Video Series
 
-### 3. Run project
-# backend
+This repo is used in:
+
+Building a Web3 Payment App (Fullstack Series)
+Episode 1: Web3 Authentication with Privy
+
+## ⚙️ Tech Stack
+## .React (Frontend)
+## .Node.js / Express (Backend)
+## .Privy (Web3 Authentication)
+## .JWT-style session handling (via Privy tokens)
+
+## Getting Started
+1. Clone the repo
+git clone https://github.com/your-username/repo-name.git
+2. Install dependencies
+Backend
+cd backend
+npm install
+Frontend
+cd client
+npm install
+3. Environment Variables
+
+Create a .env file in the backend:
+
+PRIVY_APP_ID=your_privy_app_id
+PRIVY_APP_SECRET=your_privy_app_secret
+PORT=5000
+4. Run the project
+Start backend
+cd backend
+npm run dev
+Start frontend
+cd client
 npm run dev
 
-# frontend
-npm run dev
+## What This Project Does
+## .User logs in via Privy (wallet or email)
+## .Frontend sends auth token to backend
+## .Backend verifies token using Privy utilities
+## .Server extracts user identity
 
-## What’s included
-- React frontend
-- Express backend
-- Base structure for Web3 auth (Privy)
+## Key Learning Outcome
+
+By the end of this part, you will understand:
+
+How Web3 authentication works in real apps
+How to verify user sessions on the backend
+How to connect frontend auth to backend logic
+
+## Next Video
+
+We’ll manage authentication state globally using Zustand and prepare for payment integration.
+
+⭐ Support
+
+If you’re following along, star the repo and subscribe to the series.
