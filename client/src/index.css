@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #000;
+  --primary: #f2c037;
+  --header: #666;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.container {
+  width: 100%; 
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, #f6f6f6 1px, transparent 1px),
+    linear-gradient(to bottom, #f6f6f6 1px, transparent 1px);
+  background-size: 80px 80px;
+  color: var(--text);
+  overflow-x: hidden;
+
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* border: 2px solid var(--text); */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  background-color: #f7f7f7;
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+}
+
+.nav-links a {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+.sign-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 100px;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sign-btn:hover {
+  background-color: #f7f7f7;
+}
+input,textarea,button{
+  font-family: 'Inter', sans-serif;
+}

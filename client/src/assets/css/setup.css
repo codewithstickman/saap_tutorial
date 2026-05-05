@@ -1,0 +1,281 @@
+.setup_section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 
+.setup_section h1{
+   font-size: 2.5em;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+} */
+
+
+
+.setup_section .child {
+    background-color: var(--bg);
+}
+
+.usu-card {
+    background: var(--bg);
+    padding: 40px;
+    width: 500px;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, .04),
+        0 8px 24px rgba(0, 0, 0, .07),
+        0 24px 48px rgba(79, 70, 229, .06);
+}
+
+.usu-selectBox {
+    background: var(--bg);
+    padding: 40px;
+    width: 500px;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, .04),
+        0 8px 24px rgba(0, 0, 0, .07),
+        0 24px 48px rgba(79, 70, 229, .06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.usu-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.usu-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+.usu-subtitle {
+    color: var(--header);
+    font-size: 0.8em;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin-top: 0.7em;
+}
+
+/* ---------- form ---------- */
+.usu-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ---------- field ---------- */
+.usu-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.usu-label {
+    display: block;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--header);
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+}
+
+/* ---------- input wrapper ---------- */
+.usu-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5em;
+    border: 2px dotted #f6f6f6;
+}
+
+.usu-at {
+    position: absolute;
+    left: 16px;
+    width: 1em;
+    height: 1em;
+    font-weight: 600;
+    color: var(--header);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+
+.usu-input {
+    width: 100%;
+    padding: 14px 44px 14px 38px;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    outline: none;
+    border: none;
+}
+
+
+.usu-check-icon {
+    position: absolute;
+    right: 14px;
+    font-size: 1.1rem;
+    color: green;
+    font-weight: 700;
+    line-height: 1;
+    animation: usu-pop-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes usu-pop-in {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ---------- meta row ---------- */
+.usu-meta {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.usu-shield {
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+.usu-avail-text {
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.usu-counter {
+    font-size: 0.78rem;
+    color: var(--header);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- button ---------- */
+.usu-btn {
+    width: 100%;
+    padding: 15px 24px;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.usu-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.usu-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.usu-btn--done {
+    background: var(--text);
+}
+
+
+
+/* ---------- protocol selection ---------- */
+.usu-selectBox .usu-protocol-row {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+
+}
+
+.usu-selectBox .usu-protocol-row .usu-protocol-card {
+    width: 30%;
+    height: 120px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    /* background: var(--header); */
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, .04),
+        0 8px 24px rgba(0, 0, 0, .07),
+        0 24px 48px rgba(79, 70, 229, .06);
+}
+
+.usu-selectBox .usu-protocol-row .usu-protocol-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.usu-selectBox .usu-protocol-row .usu-protocol-card .icon {
+  font-size: 30px;
+  position: absolute;
+  top: 7%;
+  right: 6%;
+  color: var(--bg);
+}
+.usu-selectBox .usu-protocol-row .usu-protocol-card:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+.usu-selectBox .usu-protocol-row .usu-protocol-card.active {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.usu-selectBox .usu-protocol-row .usu-protocol-card p {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+
+
+
+
+/* ---------- responsive ---------- */
+@media (max-width: 480px) {
+    .usu-card {
+        padding: 28px 20px;
+    }
+
+    .usu-title {
+        font-size: 1.2rem;
+    }
+
+    .usu-friends {
+        gap: 20px;
+    }
+}

@@ -1,0 +1,24 @@
+# Web3 Payment App Starter
+
+This is the starter project used in the YouTube series.
+
+## Setup
+
+### 1. Clone repo
+git clone <repo-url>
+
+### 2. Install dependencies
+cd client && npm install  
+cd ../backend && npm install  
+
+### 3. Run project
+# backend
+npm run dev
+
+# frontend
+npm run dev
+
+## What’s included
+- React frontend
+- Express backend
+- Base structure for Web3 auth (Privy)

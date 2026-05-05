@@ -1,0 +1,8 @@
+client/.env
+server/.env
+client/dist
+client/dist-ssr
+
+client/node_modules
+server/node_modules
+server/testScript.js

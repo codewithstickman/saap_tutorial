@@ -1,0 +1,65 @@
+/* Merchant Pay specific styles */
+.merchant-text-capitalize {
+    text-transform: capitalize;
+}
+
+.merchant-card-center {
+    text-align: center;
+}
+
+.merchant-qr-container {
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.merchant-qr-img {
+    border-radius: 16px;
+    border: 2px solid #f0f0f0;
+    padding: 12px;
+}
+
+.merchant-label-left {
+    text-align: left;
+}
+
+.merchant-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.merchant-input-wrap {
+    flex: 1;
+}
+
+.merchant-input-padded {
+    padding-left: 15px;
+}
+
+.merchant-btn-auto {
+    width: auto;
+    padding: 0 20px;
+    min-width: 100px;
+}
+
+.merchant-btn-mt {
+    margin-top: 10px;
+}
+
+.merchant-success-icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.usu-protocol-row.merchant{
+justify-content: center !important;
+}
+
+.merchant-copy-icon{
+    color: black;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
