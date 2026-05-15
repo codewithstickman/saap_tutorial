@@ -2,7 +2,11 @@ import React, { useState, useEffect, use } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getAccessToken, useLogin, usePrivy } from "@privy-io/react-auth";
-
+import {
+  useSaapStore,
+  syncUserSelector,
+  getLoadingSelector,
+} from "../store/saapStore";
 function Navbar() {
   const [showNav, setShowNav] = useState(true);
   const { pathname } = useLocation();
@@ -10,12 +14,15 @@ function Navbar() {
 
   const { ready, user, authenticated, logout } = usePrivy();
 
-  // const authenticated = false; // Placeholder for authentication state
+  const syncUser = useSaapStore(syncUserSelector);
+  const loading = useSaapStore(getLoadingSelector);
 
   const { login } = useLogin({
     onComplete(user) {
-      // console.log("User logged in:", user);
-      // console.log(user.isNewUser);
+      if (user.isNewUser) {
+        syncUserFunc();
+        navigate("/setup");
+      }
     },
   });
 
@@ -23,20 +30,12 @@ function Navbar() {
     try {
       const privyToken = await getAccessToken();
       console.log(privyToken);
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/sync-user`, {
-        privyToken,
-      });
-      console.log("User synced successfully", response.data);
+      await syncUser(privyToken);
     } catch (err) {
       console.log("Error getting access token", err);
     }
   };
 
-  useEffect(() => {
-    if (authenticated) {
-      syncUserFunc();
-    }
-  }, [authenticated]);
 
   useEffect(() => {
     if (

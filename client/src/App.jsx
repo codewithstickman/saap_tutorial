@@ -8,10 +8,15 @@ import Notfound from './pages/Notfound.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import MerchantPay from './pages/MerchantPay.jsx';
 import Setup from './pages/Setup.jsx';
+import { AuthInit } from './components/AuthInit.jsx';
 
 function App() {
 
+  useEffect(()=>{
+    AuthInit();
+  },[])
 
+  
   return (
     <BrowserRouter>
       <div className="container">

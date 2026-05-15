@@ -1,18 +1,40 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import { getAccessToken, useLogin, usePrivy } from "@privy-io/react-auth";
+import {
+  useSaapStore,
+  syncUserSelector,
+  getLoadingSelector,
+} from "../../store/saapStore";
 
 function Header() {
     // const authenticated = false; // Placeholder for authentication state
+  const navigate = useNavigate();
 
   const {ready, user, authenticated, logout} = usePrivy();
 
-    const {login} =useLogin({
-      onComplete(user){
-        // console.log("User logged in:", user);
-        // console.log(user.isNewUser);
+    const syncUser = useSaapStore(syncUserSelector);
+    const loading = useSaapStore(getLoadingSelector);
+
+  const { login } = useLogin({
+     onComplete(user) {
+       if (user.isNewUser) {
+         syncUserFunc();
+         navigate("/setup");
+       }
+     },
+   });
+
+        const syncUserFunc = async () => {
+      try {
+        const privyToken = await getAccessToken();
+        console.log(privyToken);
+        await syncUser(privyToken);
+      } catch (err) {
+        console.log("Error getting access token", err);
       }
-    })
+    };
+
 
     return (
         <header className="hero">
