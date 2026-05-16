@@ -1,70 +1,42 @@
-## Web3 Authentication with Privy (Starter Project)
+# Web3 Payment App – Circle Wallet Setup & Auth State
 
-This is the starter code for the YouTube series Building a Web3 Payment App, where we integrate authentication using Privy into a fullstack application.
+This project is part of the **Building a Web3 Payment App (Fullstack Series)** where we build a real-world payment application step by step using modern Web3 tools and infrastructure.
 
-In this part of the series, we focus on:
+In this part of the series, we integrate **Circle Developer-Controlled Wallets**, manage authentication state using **Zustand**, and connect authenticated users to wallet infrastructure.
 
-## .Web3 login (frontend)
-## .Backend token verification
-## .Decrypting and validating user sessions
-## .Extracting authenticated user information
+---
 
-## Video Series
+## 🚀 Features
 
-This repo is used in:
+- Web3 Authentication using Privy
+- Circle Developer-Controlled Wallets
+- Wallet Set Creation
+- Wallet Creation (Base Sepolia)
+- Zustand Auth State Management
+- Backend Token Verification
+- User Wallet Linking
 
-Building a Web3 Payment App (Fullstack Series)
-Episode 1: Web3 Authentication with Privy
+---
 
 ## ⚙️ Tech Stack
-## .React (Frontend)
-## .Node.js / Express (Backend)
-## .Privy (Web3 Authentication)
-## .JWT-style session handling (via Privy tokens)
 
-## Getting Started
-1. Clone the repo
-git clone https://github.com/your-username/repo-name.git
-2. Install dependencies
-Backend
-cd backend
-npm install
-Frontend
-cd client
-npm install
-3. Environment Variables
+### Frontend
+- React
+- Zustand
+- Privy Auth
 
-Create a .env file in the backend:
+### Backend
+- Node.js
+- Express
+- Circle SDK
 
-PRIVY_APP_ID=your_privy_app_id
-PRIVY_APP_SECRET=your_privy_app_secret
-PORT=5000
-4. Run the project
-Start backend
-cd backend
-npm run dev
-Start frontend
-cd client
-npm run dev
+### Blockchain
+- Base Sepolia
 
-## What This Project Does
-## .User logs in via Privy (wallet or email)
-## .Frontend sends auth token to backend
-## .Backend verifies token using Privy utilities
-## .Server extracts user identity
+---
 
-## Key Learning Outcome
+## 📁 Project Structure
 
-By the end of this part, you will understand:
-
-How Web3 authentication works in real apps
-How to verify user sessions on the backend
-How to connect frontend auth to backend logic
-
-## Next Video
-
-We’ll manage authentication state globally using Zustand and prepare for payment integration.
-
-⭐ Support
-
-If you’re following along, star the repo and subscribe to the series.
+```bash
+client/      # Frontend application
+server/      # Backend API
