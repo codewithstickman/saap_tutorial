@@ -78,7 +78,7 @@ function Setup() {
       console.log("Proceeding with setup...");
       console.log(protocolsSelected, username);
       setupUser({ username, protocol: protocolsSelected });
-      //   navigate("/dashboard");
+        navigate("/dashboard");
     }
   };
 

@@ -40,9 +40,8 @@ router.post("/sync-user", async (req, res) => {
   }
 });
 
-router.put("/setup",auth, async (req, res) => {
+router.put("/setup", auth, async (req, res) => {
   try {
-
     console.log(req.user);
     // return;
     const { username, protocol } = req.body;
@@ -80,11 +79,24 @@ router.put("/setup",auth, async (req, res) => {
         walletSetId,
         walletAddress,
       },
-      { new: true }
+      { new: true },
     );
     console.log("updatedUser", updatedUser);
 
     return res.status(200).json({ message: "Setup completed successfully" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.get("/", auth, async (req, res) => {
+  try {
+    const user = await User.findOne({ privyId: req.user.user_id }).select("-walletId -walletSetId -privyId");
+    if (!user) {
+      res.status(400).json({ message: "No user found" });
+    }
+    res.status(200).json({ message: user });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal server error" });

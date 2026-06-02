@@ -10,6 +10,12 @@ import {
 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import {
+  useSaapStore,
+  getMerchantDataSelector,
+  getMerchantSelector,
+} from "../store/saapStore";
+
 function MerchantPay() {
   const { username } = useParams();
   const navigate = useNavigate();
@@ -60,11 +66,17 @@ function MerchantPay() {
     },
   ]);
 
-  useEffect(() => {
-    setProtocols(protocols.filter((p) => p.name === "base")); //hand coding the selection
-  }, []);
+  const getMerchantFunc = useSaapStore(getMerchantDataSelector);
+  const merchantData = useSaapStore(getMerchantSelector);
 
-  const fullMockAddress = "0x1234567890abcdef1234567890abcdef12345678";
+  useEffect(() => {
+      if(merchantData){
+        const pt = merchantData? merchantData.protocol :"polygon"
+        setProtocols(protocols.filter((p) => p.name === pt)); //hand coding the selection
+      }
+  }, [merchantData]);
+
+  const fullMockAddress = merchantData? merchantData.walletAddress:"0x1234567890abcdef1234567890abcdef12345678";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(fullMockAddress);
@@ -83,6 +95,12 @@ function MerchantPay() {
   const handlePaymentComplete = () => {
     setStage(3);
   };
+
+  useEffect(() => {
+    if (username) {
+      getMerchantFunc(username);
+    }
+  }, [username]);
 
   return (
     <div className="setup_section">

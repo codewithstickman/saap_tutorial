@@ -1,20 +1,21 @@
-# Web3 Payment App – Circle Wallet Setup & Auth State
+# Web3 Payment App – Merchant Payments & Circle Webhooks
 
-This project is part of the **Building a Web3 Payment App (Fullstack Series)** where we build a real-world payment application step by step using modern Web3 tools and infrastructure.
+This project is part of the **Building a Web3 Payment App (Fullstack Series)** where we build a real-world payment application step by step using modern Web3 tools and payment infrastructure.
 
-In this part of the series, we integrate **Circle Developer-Controlled Wallets**, manage authentication state using **Zustand**, and connect authenticated users to wallet infrastructure.
+In this part of the series, we implement the **merchant payment flow**, configure **Circle webhooks**, test blockchain transactions, and connect the frontend + backend payment system.
 
 ---
 
 ## 🚀 Features
 
-- Web3 Authentication using Privy
+- Web3 Authentication with Privy
 - Circle Developer-Controlled Wallets
-- Wallet Set Creation
-- Wallet Creation (Base Sepolia)
-- Zustand Auth State Management
-- Backend Token Verification
-- User Wallet Linking
+- Merchant Payment Flow
+- Circle Webhook Integration
+- Outray Tunnel for Local Backend Testing
+- USDC Test Transactions
+- MongoDB Payment Storage
+- Frontend + Backend Payment Integration
 
 ---
 
@@ -28,10 +29,16 @@ In this part of the series, we integrate **Circle Developer-Controlled Wallets**
 ### Backend
 - Node.js
 - Express
+- MongoDB
 - Circle SDK
+
+### Infrastructure
+- Outray (Webhook Tunnel)
+- Circle Webhooks
 
 ### Blockchain
 - Base Sepolia
+- USDC Test Tokens
 
 ---
 
@@ -40,3 +47,142 @@ In this part of the series, we integrate **Circle Developer-Controlled Wallets**
 ```bash
 client/      # Frontend application
 server/      # Backend API
+```
+
+---
+
+## 📦 Installation
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/codewithstickman/saap_tutorial.git
+```
+
+---
+
+### 2. Install Dependencies
+
+#### Client
+
+```bash
+cd client
+npm install
+```
+
+#### Server
+
+```bash
+cd server
+npm install
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file inside the `server` folder:
+
+```env
+CIRCLE_APIKEY=your_circle_api_key
+ENTITY_SECRET=your_entity_secret
+PRIVY_APP_ID=your_privy_app_id
+PRIVY_APP_SECRET=your_privy_app_secret
+DB_URL=your_mongodb_connection_string
+PORT=5000
+```
+
+---
+
+## ▶️ Running The Project
+
+### Start Backend
+
+```bash
+cd server
+npm run dev
+```
+
+### Start Frontend
+
+```bash
+cd client
+npm run dev
+```
+
+---
+
+## 🔄 Current Flow
+
+1. Authenticate user using Privy  
+2. Create Circle wallet infrastructure  
+3. Configure merchant payment setup  
+4. Create test blockchain transactions  
+5. Send funds to MetaMask test wallet  
+6. Handle webhook events using Circle  
+7. Save merchant payment data to MongoDB  
+8. Update frontend + backend payment state
+
+---
+
+## 🌍 Webhook Testing
+
+This project uses **Outray** to expose the local backend server for Circle webhook testing.
+
+Example:
+
+```bash
+localhost:5000 → public Outray URL
+```
+
+This allows Circle to send webhook events directly to your local Node.js server.
+
+---
+
+## 🧪 Testing Payments
+
+To test transactions:
+
+1. Request test USDC from Circle Faucet  
+2. Configure your MetaMask test wallet  
+3. Create test transactions  
+4. Observe webhook updates  
+5. Verify payment state in MongoDB
+
+---
+
+## 📺 YouTube Series
+
+### Part 1
+**Web3 Authentication with Privy**  
+Frontend login + backend token verification
+
+### Part 2
+**Circle Wallet Setup + Zustand Auth State**  
+Wallet infrastructure and authenticated user linking
+
+### Part 3
+**Merchant Payments + Circle Webhooks**  
+Transactions, payment flow, webhook handling, and MongoDB integration
+
+---
+
+## 🔗 Repository Branches
+
+### Previous Video
+`circle-setup`
+
+### Current Video Source Code
+`merchant-payment-flow`
+
+---
+
+## 🧠 Goal of This Project
+
+The goal of this series is to build a **real-world Web3 payment application** while learning how authentication, wallets, payments, webhooks, and backend systems connect together in production-level software.
+
+---
+
+## ⭐ Follow The Series
+
+If you're building along, feel free to star the repository and follow the YouTube series.

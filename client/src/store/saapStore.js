@@ -44,11 +44,59 @@ const useSaapStore = create((set, get) => ({
       set({ loading: false, error: error, success: null });
     }
   },
+
+  getUserData: async () => {
+    // if (get().loading) return;
+    try {
+      set({ loading: true, error: null, success: null });
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/api/user/`,
+      );
+      console.log("User gotten successfully", response.data);
+      set({ loading: false, user: response.data.message });
+    } catch (error) {
+      console.log(error);
+      set({ loading: false, error: error, success: null });
+    }
+  },
+
+  getMerchantData: async (username) => {
+    if (get().loading) return;
+    try {
+      set({ loading: true, error: null, success: null });
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/api/merchant/${username}`,
+      );
+      console.log("merchant gotten successfully", response.data);
+      set({ loading: false, merchant: response.data.message });
+    } catch (error) {
+      console.log(error);
+      set({ loading: false, error: error, success: null });
+    }
+  },
+
+  getUserTX: async () => {
+    // if (get().loading) return;
+    try {
+      set({ loading: true, error: null, success: null });
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/api/merchant/tx`,
+      );
+      console.log("transactions gotten successfully", response.data);
+      set({ loading: false, transactions: response.data.message });
+    } catch (error) {
+      console.log(error);
+      set({ loading: false, error: error, success: null });
+    }
+  },
 }));
 
 // FUNCTIONS
 const syncUserSelector = (state) => state.syncUser;
 const setupUserSelector = (state) => state.setupUser;
+const getUserDataSelector = (state) => state.getUserData;
+const getMerchantDataSelector = (state) => state.getMerchantData;
+const getUserTXSelector = (state) => state.getUserTX;
 
 // GETTERS
 const getLoadingSelector = (state) => state.loading;
@@ -62,7 +110,9 @@ export {
   useSaapStore,
   syncUserSelector,
   setupUserSelector,
-
+  getUserDataSelector,
+  getMerchantDataSelector,
+  getUserTXSelector,
   // GETTERS
   getLoadingSelector,
   getErrorSelector,

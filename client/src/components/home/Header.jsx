@@ -64,7 +64,7 @@ function Header() {
                 </Link>
             ) : (
 
-                <button className="get-started-btn">
+                <button className="get-started-btn" onClick={login}>
                     Create account
                 </button>
             )}

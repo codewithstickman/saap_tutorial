@@ -37,3 +37,4 @@ app.get("/", (req, res) => {
 
 // ROUTES
 app.use("/api/user", require("./routes/user"));
+app.use("/api/merchant", require("./routes/merchant"));
